@@ -1,0 +1,13 @@
+<%= form_tag("/search", :method=> "get") do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+  <br/>
+  <%= label_tag(:number_of_results_parent, "Results per page") %>
+  <%= radio_button_tag(:number_of_results, "10", true) %>
+  <%= label_tag(:number_of_results_child, "10") %>
+  <%= radio_button_tag(:number_of_results, "30") %>
+  <%= label_tag(:number_of_results_child, "30") %>
+  <%= radio_button_tag(:number_of_results, "100") %>
+  <%= label_tag(:number_of_results_child, "100") %>
+<% end %>
+<div><%= search_results %></div>
