@@ -1,3 +1,31 @@
 // Place all the styles related to the search controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#d_clip_button {
+  border: 1px solid black;
+  text-align: center;
+  font-family: serif;
+  font-size: 15px;
+  float: left;
+  clear: both;
+  padding: 8px;
+  background-color: #eee;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-top: 5px;
+}
+#d_clip_button.hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+#d_clip_button.active {
+  background-color: #aaa;
+  cursor: pointer;
+}
+#search_results_container {
+  margin-top: 5px;
+  float: left;
+}
+div.clear {
+  clear: both;
+}

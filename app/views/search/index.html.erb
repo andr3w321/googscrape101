@@ -1,3 +1,6 @@
+<%= javascript_include_tag 'zero-clipboard' %>
+<%= stylesheet_link_tag "search" %>
+
 <%= form_tag("/search", :method=> "get") do %>
   <%= text_field_tag(:q, params[:q]) %>
   <%= submit_tag("Search") %>
@@ -11,14 +14,24 @@
   <%= radio_button_tag(:number_of_results, "100", params[:number_of_results].to_i==100) %>
   <%= label_tag(:number_of_results_child, "100") %>
 <% end %>
+<div id="d_clip_button">Copy URLs to Clipboard</div>
+
+<script language="JavaScript">
+  var clip = new ZeroClipboard.Client();
+  clip.glue( 'd_clip_button' );
+  clip.addEventListener( 'onMouseOver', clipboardEvent);
+  function clipboardEvent() { 
+    clip.setText( document.getElementById('clip_text').value);
+    clip.setHandCursor( true );
+    clip.setCSSEffects( true );
+  }
+
+</script>
+<div class="clear"></div>
+<div id="search_results_container">
 <% search_results.each do |result| %>
   <%= link_to result.hreftext, result.href %><br/>
 <% end %>
-<%= asset_path("swf/ZeroClipboard10.swf") %>
-<div id="d_clip_button" style="border:1px solid black; padding:20px;">Copy URLs to clipboard</div>
-<script language="JavaScript">
-  var clip = new ZeroClipboard.Client();
-  clip.setText( 'Copy me!' );
-  clip.glue( 'd_clip_button' );
-</script>
+</div>
+<input type="hidden" id="clip_text" size="40" value="<%= get_links %>"/>
 

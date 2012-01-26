@@ -20,6 +20,8 @@ gem 'nokogiri'
 gem 'activeadmin'
 gem 'meta_search',  '>= 1.1.0.pre'
 
+gem 'zero-clipboard-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -24,7 +24,7 @@ module SearchHelper
         
         href       = node.at_css("h3").at_css("a")[:href]
         href_text  = node.at_css("h3").text
-        @linkslist << href << "\n"
+        @linkslist << href << "\r\n"
         results << Result.link_only(href, href_text)
       end
     end
