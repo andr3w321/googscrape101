@@ -1,6 +1,9 @@
 Googlescrape::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #Required for ActiveAdmin emails to work
+  config.action_mailer.default_url_options = { :host => 'googscrape101.heroku.com' }
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
