@@ -13,6 +13,12 @@
 <% end %>
 <% search_results.each do |result| %>
   <%= link_to result.hreftext, result.href %><br/>
-  <%= result.greenlink %> <br/>
-  <%= result.summary %><br/><br/>
 <% end %>
+<%= asset_path("swf/ZeroClipboard10.swf") %>
+<div id="d_clip_button" style="border:1px solid black; padding:20px;">Copy URLs to clipboard</div>
+<script language="JavaScript">
+  var clip = new ZeroClipboard.Client();
+  clip.setText( 'Copy me!' );
+  clip.glue( 'd_clip_button' );
+</script>
+
