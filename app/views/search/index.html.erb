@@ -1,1 +1,14 @@
+<%= stylesheet_link_tag "active_admin" %>
+<div id="header">
+  <h1>Googlescrape</h1>
+  <ul class="tabbed_navigation" id="tabs">
+    <li id="dashboard"><%= link_to "Dashboard", "/admin" %></li>
+    <li id="admin_users"><%= link_to "Admin Users", "/admin/admin_users" %></li>
+    <li class="current" id="search"><%= link_to "Top Url Tool", "search/index" %></li>
+  </ul>
+  <p id="utility_nav">
+  <span class="current_user"><%= current_admin_user.email %></span>
+  <%= link_to "Logout", destroy_admin_user_session_path %>
+  </p>
+</div>
 <%= render 'search' %>

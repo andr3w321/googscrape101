@@ -1,5 +1,11 @@
 ActiveAdmin::Dashboards.build do
 
+  section "Apps" do
+    div do
+      link_to "Top Url Tool", search_path
+    end
+  end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.

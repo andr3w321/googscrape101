@@ -1,6 +1,6 @@
 <%= javascript_include_tag 'zero-clipboard' %>
 <%= stylesheet_link_tag "search" %>
-
+<div id="search_wrapper">
 <%= form_tag("/search", :method=> "get") do %>
   <%= text_field_tag(:q, params[:q]) %>
   <%= submit_tag("Search") %>
@@ -35,3 +35,4 @@
 </div>
 <input type="hidden" id="clip_text" size="40" value="<%= get_links %>"/>
 
+</div>
