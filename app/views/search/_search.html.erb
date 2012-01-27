@@ -21,7 +21,7 @@
   clip.glue( 'd_clip_button' );
   clip.addEventListener( 'onMouseOver', clipboardEvent);
   function clipboardEvent() { 
-    clip.setText( document.getElementById('clip_text').value);
+    clip.setText( document.getElementById('txtarea').value);
     clip.setHandCursor( true );
     clip.setCSSEffects( true );
   }
@@ -29,10 +29,6 @@
 </script>
 <div class="clear"></div>
 <div id="search_results_container">
-<% search_results.each do |result| %>
-  <%= link_to result.hreftext, result.href %><br/>
-<% end %>
+  <textarea id="txtarea" cols="80" rows='<%=params[:number_of_results].to_i+2 %>'><%= search_results %></textarea>
 </div>
-<input type="hidden" id="clip_text" size="40" value="<%= get_links %>"/>
-
 </div>

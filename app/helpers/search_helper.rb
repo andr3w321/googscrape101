@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'result'
 
 module SearchHelper
 
@@ -8,27 +7,18 @@ module SearchHelper
   end
 
   def search_results
-    results = Array.new
-    @linkslist = ""
+    results = String.new
     if(!params[:q].nil?)
       doc = Nokogiri::HTML(open("http://www.google.com/search?q=#{CGI.escape(params[:q])}&num=#{CGI.escape(params[:number_of_results])}&pws=0"))
       doc.css(".g").each do |node|
         #filter out images, news & video results which are links to additional google searches
         if !node.at_css(".s").nil?
-          href       = node.at_css("h3").at_css("a")[:href]
-          href_text  = node.at_css("h3").text
-          @linkslist << href << "\r\n"
-          results << Result.link_only(href, href_text)
-          #green_link = node.at_css("cite").text
-          #summary    = node.at_css(".s").text
-          #results << Result.new(href, href_text, green_link, summary)
+          href = node.at_css("h3").at_css("a")[:href]
+          results << href << "\r\n"
         end
       end
     end
     results
   end
-
-  def get_links
-    @linkslist
-  end
 end
+
