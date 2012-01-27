@@ -7,7 +7,7 @@ Googlescrape::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => 'search#index'
-  match '/search' => 'search#index'
+  match '/search' => 'search#index', :as => :search
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
