@@ -20,5 +20,8 @@ module SearchHelper
     end
     results
   end
+
+  def get_search
+  end
 end
 

@@ -1,8 +1,9 @@
 <%= javascript_include_tag 'zero-clipboard' %>
+<%= javascript_include_tag 'searchRegex' %>
 <%= stylesheet_link_tag "search" %>
 <div id="search_wrapper">
 <%= form_tag("/search", :method=> "get") do %>
-  <%= text_field_tag(:q, params[:q]) %>
+  <%= text_field_tag(:q, params[:q], :onChange => "testForSiteSearch();" ) %>
   <%= submit_tag("Search") %>
   <br/>
   <% set_default_radio_btn %>
