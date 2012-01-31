@@ -1,9 +1,11 @@
 <%= javascript_include_tag 'zero-clipboard' %>
-<%= javascript_include_tag 'searchRegex' %>
 <%= stylesheet_link_tag "search" %>
 <div id="search_wrapper">
 <%= form_tag("/search", :method=> "get") do %>
-  <%= text_field_tag(:q, params[:q], :onChange => "testForSiteSearch();" ) %>
+  <%= label_tag(:domain_label, "Domain: ") %>
+  <%= text_field_tag(:domain, params[:domain], :placeholder => "apple.com")%>
+  <%= label_tag(:q_label, "Keywords: ") %>
+  <%= text_field_tag(:q, params[:q], :placeholder => "iPhone") %>
   <%= submit_tag("Search") %>
   <br/>
   <% set_default_radio_btn %>
@@ -30,6 +32,6 @@
 </script>
 <div class="clear"></div>
 <div id="search_results_container">
-  <textarea id="txtarea" cols="80" rows='<%=params[:number_of_results].to_i+2 %>'><%= search_results %></textarea>
+  <textarea id="txtarea" cols="100" rows='<%=params[:number_of_results].to_i+2 %>'><%= search_results %></textarea>
 </div>
 </div>

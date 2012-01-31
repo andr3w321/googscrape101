@@ -9,7 +9,18 @@ module SearchHelper
   def search_results
     results = String.new
     if(!params[:q].nil?)
-      doc = Nokogiri::HTML(open("http://www.google.com/search?q=#{CGI.escape(params[:q])}&num=#{CGI.escape(params[:number_of_results])}&pws=0"))
+      query = params[:q]
+      if(!params[:domain].empty?)
+        #check if valid domain entered
+        domain_regex = /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/ix
+        if(params[:domain]=~domain_regex)
+          query = 'site:'<<params[:domain]<<', '<<params[:q]
+        else
+          return 'Error parsing domain'
+        end
+      end
+
+      doc = Nokogiri::HTML(open("http://www.google.com/search?q=#{CGI.escape(query)}&num=#{CGI.escape(params[:number_of_results])}&pws=0"))
       doc.css(".g").each do |node|
         #filter out images, news & video results which are links to additional google searches
         if !node.at_css(".s").nil?
@@ -19,9 +30,6 @@ module SearchHelper
       end
     end
     results
-  end
-
-  def get_search
   end
 end
 
