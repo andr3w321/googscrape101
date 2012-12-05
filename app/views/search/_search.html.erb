@@ -3,9 +3,9 @@
 <div id="search_wrapper">
 <%= form_tag("/search", :method=> "get") do %>
   <%= label_tag(:domain_label, "Domain: ") %>
-  <%= text_field_tag(:domain, params[:domain], :placeholder => "apple.com")%>
+  <%= text_field_tag(:domain, params[:domain], :placeholder => "reddit.com")%>
   <%= label_tag(:q_label, "Keywords: ") %>
-  <%= text_field_tag(:q, params[:q], :placeholder => "iPhone") %>
+  <%= text_field_tag(:q, params[:q], :placeholder => "cats") %>
   <%= submit_tag("Search") %>
   <br/>
   <% set_default_radio_btn %>

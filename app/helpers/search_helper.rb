@@ -24,7 +24,7 @@ module SearchHelper
       doc.css(".g").each do |node|
         #filter out images, news & video results which are links to additional google searches
         if !node.at_css(".s").nil?
-          href = node.at_css("h3").at_css("a")[:href]
+          href = node.at_css("h3").at_css("a")[:href].gsub("\/url?q=","").split("&")[0]
           results << href << "\r\n"
         end
       end
