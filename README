@@ -11,6 +11,7 @@ To clone the repo do:
 git clone git://github.com/andr3w321/googscrape101.git
 cd googscrape101
 edit username, password and password_confirmation in db/seeds.rb to your desired user/pass
+bundle exec rake assets:precompile
 bundle exec rake db:migrate
 bundle exec rake db:seed
 rails s

@@ -18,7 +18,7 @@ gem 'nokogiri'
 #gem 'mechanize'
 
 #required for active admin
-gem 'activeadmin'
+gem 'activeadmin', '~> 0.5.1'
 gem 'meta_search',  '>= 1.1.0.pre'
 
 #For copying to clipboard
